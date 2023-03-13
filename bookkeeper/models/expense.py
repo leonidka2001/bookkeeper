@@ -2,8 +2,8 @@
 Описан класс, представляющий расходную операцию
 """
 
-from dataclasses import dataclass, field
-from datetime import datetime, time
+from dataclasses import dataclass
+from datetime import datetime
 
 
 @dataclass

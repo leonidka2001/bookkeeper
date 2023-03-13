@@ -2,45 +2,13 @@
 Класс приложения на PyQT (view)
 """
 import sys
-from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6 import QtWidgets
 from functools import partial
 from typing import Optional, Callable
 
 from bookkeeper.view.expenses_page import expensesPage
 from bookkeeper.view.categories_page import categoriesPage
 from bookkeeper.view.budget_page import BudgetPage
-from bookkeeper.utils import set_elem_in_tree, delete_elem_from_tree, get_elem_in_tree, get_elem_parent
-
-categories_example = {
-    1: {
-        "name": "продукты",
-        2: {
-            "name": "мясо",
-            3: {
-                "name": "сырое мясо"
-            },
-            4: {
-                "name": "мясные продукты"
-            }
-        },
-        5: {
-            "name": "сладости"
-        }
-    },
-    6: {
-        "name": "книги"
-    },
-    7: {
-        "name": "одежда"
-    },
-    8: {
-        "name": "почта"
-    }
-}
-
-
-def get_example():
-    return categories_example
 
 
 def handle_error(widget, handler):

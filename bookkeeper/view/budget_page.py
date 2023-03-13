@@ -114,7 +114,8 @@ class ChangeBudgetWindow(QtWidgets.QWidget):
 
         self.layout.addWidget(self.change_budget_window_title)
         self.layout.addWidget(setBudgetInput(name="День", budget_setter=budgets_setter))
-        self.layout.addWidget(setBudgetInput(name="Неделя", budget_setter=budgets_setter))
+        self.layout.addWidget(setBudgetInput(name="Неделя",
+                                             budget_setter=budgets_setter))
         self.layout.addWidget(setBudgetInput(name="Месяц", budget_setter=budgets_setter))
 
 

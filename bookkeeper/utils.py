@@ -18,8 +18,10 @@ def _lines_with_indent(lines: Iterable[str]) -> Iterator[tuple[int, str]]:
 
 def read_tree(lines: Iterable[str]) -> list[tuple[str, str | None]]:
     """
-    Прочитать структуру дерева из текста на основе отступов. Вернуть список
-    пар "потомок-родитель" в порядке топологической сортировки. Родитель
+    Прочитать структуру дерева из текста на основе отступов.
+    Вернуть список
+    пар "потомок-родитель" в порядке топологической сортировки.
+    Родитель
     элемента верхнего уровня - None.
 
     Пример. Следующий текст:
@@ -65,7 +67,8 @@ def read_tree(lines: Iterable[str]) -> list[tuple[str, str | None]]:
 
 def build_dict_tree_from_list(sorted_list: list) -> dict:
     """
-    Функция строит из массива записей вида (имя, родительский id, id) дерево с json-подобной структурой (ключи - id)
+    Функция строит из массива записей вида (имя, родительский id, id)
+    дерево с json-подобной структурой (ключи - id)
     """
     tree = {}
     for element in sorted_list:
@@ -101,7 +104,8 @@ def get_elem_parent(tree: dict, pk: int, prev_parent: int = None) -> int:
 
 def set_elem_in_tree(tree: dict, elem: list[type]) -> None:
     """
-    Функция по заданной записи вида (имя, родительский id, id) меняет элемент в дереве
+    Функция по заданной записи вида (имя, родительский id, id)
+    меняет элемент в дереве
     """
     if elem.parent is None:
         tree[elem.pk] = {"name": elem.name}
