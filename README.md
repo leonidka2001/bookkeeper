@@ -3,7 +3,7 @@
 
 Для запуска приложения (Windows)
 ```commandline
-python .\bookkeeper\workapp.py
+poetry run python .\bookkeeper\workapp.py
 ```
 
 [Техническое задание](specification.md)
