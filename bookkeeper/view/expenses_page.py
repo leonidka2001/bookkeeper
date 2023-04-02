@@ -79,7 +79,7 @@ class expensesList(QtWidgets.QWidget):
 
     def set_expenses(self, expenses_getter: Callable) -> None:
         if self.expenses_table.itemAt(0, 0) is not None:
-            self.expenses_table.setParent(None)
+            self.layout.removeWidget(self.expenses_table)
 
         expenses_data = expenses_getter()
 

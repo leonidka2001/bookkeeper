@@ -95,16 +95,16 @@ class MainWindow(QtWidgets.QWidget):
             edit_handler=self.edit_category_handler,
             delete_handler=self.delete_category_handler
         )
-        self.menuBarWidget = pageManagerToolbar(parent=self)
+        # self.menuBarWidget = pageManagerToolbar(parent=self)
 
-        self.layout = QtWidgets.QVBoxLayout()
+        self.layout = QtWidgets.QHBoxLayout()
 
-        self.page_layout = QtWidgets.QStackedLayout()
-        self.page_layout.addWidget(self.expenses_page)
+        self.page_layout = QtWidgets.QVBoxLayout()
         self.page_layout.addWidget(self.budget_page)
         self.page_layout.addWidget(self.categories_page)
 
-        self.layout.addWidget(self.menuBarWidget)
+        # self.layout.addWidget(self.menuBarWidget)
+        self.layout.addWidget(self.expenses_page)
         self.layout.addLayout(self.page_layout)
         self.setLayout(self.layout)
 

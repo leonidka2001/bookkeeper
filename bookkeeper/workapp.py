@@ -82,16 +82,16 @@ class Bookkeeper:
         }
         return handlers_dist
 
-    def get_category_tree(self) -> dict:
+    def get_category_tree(self) -> list[Category]:
         categories_list = self.cat_repo.get_all()
-        categories_tree = build_dict_tree_from_list(categories_list)
-        return categories_tree
+        # categories_tree = build_dict_tree_from_list(categories_list)
+        return categories_list
 
     def add_new_category(self,
                          category_name: str, parent_id: int | None = None) -> None:
         self.cat_repo.add(Category(name=category_name, parent=parent_id))
-        self.view.window.categories_page.categories_list.set_tree(
-            category_tree_getter=self.get_category_tree)
+        self.view.window.categories_page.categories_list.set_categories(
+            category_getter=self.get_category_tree)
         self.view.window.expenses_page.add_expense.choose_category.update_categories(
             category_list_getter=self.get_categories_list)
 
@@ -103,15 +103,15 @@ class Bookkeeper:
             new_name = self.cat_repo.get(category_id).name
         self.cat_repo.update(
             Category(name=new_name, parent=new_parent_id, pk=category_id))
-        self.view.window.categories_page.categories_list.set_tree(
-            category_tree_getter=self.get_category_tree)
+        self.view.window.categories_page.categories_list.set_categories(
+            category_getter=self.get_category_tree)
         self.view.window.expenses_page.add_expense.choose_category.update_categories(
             category_list_getter=self.get_categories_list)
 
     def delete_category(self, category_id: int) -> None:
         self.cat_repo.delete(category_id)
-        self.view.window.categories_page.categories_list.set_tree(
-            category_tree_getter=self.get_category_tree)
+        self.view.window.categories_page.categories_list.set_categories(
+            category_getter=self.get_category_tree)
         self.view.window.expenses_page.add_expense.choose_category.update_categories(
             category_list_getter=self.get_categories_list)
 

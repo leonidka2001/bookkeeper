@@ -79,7 +79,7 @@ class BudgetWindow(QtWidgets.QWidget):
 
     def set_budgets(self, budgets_getter: Callable) -> None:
         if self.budgets_table.itemAt(0, 0) is not None:
-            self.budgets_table.setParent(None)
+            self.layout.removeWidget(self.budgets_table)
 
         budgets_data = budgets_getter()
 
@@ -159,5 +159,5 @@ class BudgetPage(QtWidgets.QWidget):
         self.change_budget_window = ChangeBudgetWindow(budgets_setter=set_handler)
         self.layout.addWidget(self.change_budget_window)
 
-        self.budget_info = BudgetInfoWindow()
-        self.layout.addWidget(self.budget_info)
+        # self.budget_info = BudgetInfoWindow()
+        # self.layout.addWidget(self.budget_info)
